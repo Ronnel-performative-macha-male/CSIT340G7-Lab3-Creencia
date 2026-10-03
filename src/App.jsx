@@ -3,7 +3,7 @@ const Header = (props) => {
   return (
     <header className="bg-blue-600 text-white px-8 py-6 shadow-md">
       <h1 className="text-3xl font-bold text-center">
-        {props.course}
+        {props.course.name}
       </h1>
     </header>
   )
@@ -32,9 +32,9 @@ const Content = (props) => {
         </h2>
 
         <div className="space-y-4">
-          <Part part={props.parts[0]} />
-          <Part part={props.parts[1]} />
-          <Part part={props.parts[2]} />
+          <Part part={props.course.parts[0]} />
+          <Part part={props.course.parts[1]} />
+          <Part part={props.course.parts[2]} />
         </div>
       </div>
     </main>
@@ -79,23 +79,23 @@ const Footer = (props) => {
 }
 
 const App = () => {
-  const course =
-    'Bachelor of Science in Information Technology'
-
-  const parts = [
-    {
-      name: 'CSIT340 - Industry Elective 1',
-      exercises: 3
-    },
-    {
-      name: 'CSIT321 - Web Development',
-      exercises: 3
-    },
-    {
-      name: 'CSIT311 - Database Systems',
-      exercises: 4
-    }
-  ]
+  const course = {
+    name: 'Bachelor of Science in Information Technology',
+    parts: [
+      {
+        name: 'CSIT340 - Industry Elective 1',
+        exercises: 3
+      },
+      {
+        name: 'CSIT321 - Web Development',
+        exercises: 3
+      },
+      {
+        name: 'CSIT311 - Database Systems',
+        exercises: 4
+      }
+    ]
+  }
 
   const name = 'Ronnel P. Creencia'
   const courseCode = 'CSIT340'
@@ -105,9 +105,9 @@ const App = () => {
     <div className="min-h-screen bg-gray-100">
       <Header course={course} />
 
-      <Content parts={parts} />
+      <Content course={course} />
 
-      <Total parts={parts} />
+      <Total parts={course.parts} />
 
       <Footer
         name={name}
