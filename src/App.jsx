@@ -9,53 +9,58 @@ const Header = (props) => {
   )
 }
 
+
+const Part = (props) => {
+  return (
+    <div className="flex justify-between items-center bg-gray-50 border border-gray-200 rounded-lg p-4">
+      <span className="text-gray-700 font-medium">
+        {props.part}
+      </span>
+
+      <span className="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-full">
+        {props.exercises} Units
+      </span>
+    </div>
+  )
+}
+
+
 const Content = (props) => {
   return (
     <main className="max-w-3xl mx-auto px-6 py-8">
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-          Course Exercises
+          Course Subjects
         </h2>
 
         <div className="space-y-4">
-          <div className="flex justify-between items-center bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <span className="text-gray-700 font-medium">
-              {props.part1}
-            </span>
-            <span className="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-full">
-              {props.exercises1}
-            </span>
-          </div>
+          <Part
+            part={props.part1}
+            exercises={props.exercises1}
+          />
 
-          <div className="flex justify-between items-center bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <span className="text-gray-700 font-medium">
-              {props.part2}
-            </span>
-            <span className="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-full">
-              {props.exercises2}
-            </span>
-          </div>
+          <Part
+            part={props.part2}
+            exercises={props.exercises2}
+          />
 
-          <div className="flex justify-between items-center bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <span className="text-gray-700 font-medium">
-              {props.part3}
-            </span>
-            <span className="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-full">
-              {props.exercises3}
-            </span>
-          </div>
+          <Part
+            part={props.part3}
+            exercises={props.exercises3}
+          />
         </div>
       </div>
     </main>
   )
 }
 
+// 4. Total Component
 const Total = (props) => {
   return (
     <div className="max-w-3xl mx-auto px-6">
       <div className="bg-blue-600 text-white rounded-xl shadow-lg p-6 text-center">
         <p className="text-xl font-semibold">
-          Number of exercises
+          Total Units
         </p>
 
         <p className="text-4xl font-bold mt-2">
@@ -66,7 +71,7 @@ const Total = (props) => {
   )
 }
 
-// 4. Footer Component
+// 5. Footer Component
 const Footer = (props) => {
   return (
     <footer className="mt-10 bg-gray-800 text-white py-6">
@@ -83,19 +88,19 @@ const Footer = (props) => {
   )
 }
 
-// 5. Main App Component
+// 6. Main App Component
 const App = () => {
   const course =
-    'CIT-U Bachelor of Science in Information Technology: Industry Elective'
+    'Bachelor of Science in Information Technology'
 
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
+  const part1 = 'CSIT340 - Industry Elective 1'
+  const exercises1 = 3
 
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
+  const part2 = 'CSIT321 - Web Development'
+  const exercises2 = 3
 
-  const part3 = 'State of component'
-  const exercises3 = 14
+  const part3 = 'CSIT311 - Database Systems'
+  const exercises3 = 4
 
   const name = 'Ronnel P. Creencia'
   const courseCode = 'CSIT340'
