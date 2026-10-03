@@ -32,9 +32,9 @@ const Content = (props) => {
         </h2>
 
         <div className="space-y-4">
-          <Part part={props.part1} />
-          <Part part={props.part2} />
-          <Part part={props.part3} />
+          <Part part={props.parts[0]} />
+          <Part part={props.parts[1]} />
+          <Part part={props.parts[2]} />
         </div>
       </div>
     </main>
@@ -42,6 +42,11 @@ const Content = (props) => {
 }
 
 const Total = (props) => {
+  const total =
+    props.parts[0].exercises +
+    props.parts[1].exercises +
+    props.parts[2].exercises
+
   return (
     <div className="max-w-3xl mx-auto px-6">
       <div className="bg-blue-600 text-white rounded-xl shadow-lg p-6 text-center">
@@ -50,7 +55,7 @@ const Total = (props) => {
         </p>
 
         <p className="text-4xl font-bold mt-2">
-          {props.total}
+          {total}
         </p>
       </div>
     </div>
@@ -77,41 +82,32 @@ const App = () => {
   const course =
     'Bachelor of Science in Information Technology'
 
-  const part1 = {
-    name: 'CSIT340 - Industry Elective 1',
-    exercises: 3
-  }
-
-  const part2 = {
-    name: 'CSIT321 - Web Development',
-    exercises: 3
-  }
-
-  const part3 = {
-    name: 'CSIT311 - Database Systems',
-    exercises: 4
-  }
+  const parts = [
+    {
+      name: 'CSIT340 - Industry Elective 1',
+      exercises: 3
+    },
+    {
+      name: 'CSIT321 - Web Development',
+      exercises: 3
+    },
+    {
+      name: 'CSIT311 - Database Systems',
+      exercises: 4
+    }
+  ]
 
   const name = 'Ronnel P. Creencia'
   const courseCode = 'CSIT340'
   const section = 'G7'
 
-  const total =
-    part1.exercises +
-    part2.exercises +
-    part3.exercises
-
   return (
     <div className="min-h-screen bg-gray-100">
       <Header course={course} />
 
-      <Content
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
+      <Content parts={parts} />
 
-      <Total total={total} />
+      <Total parts={parts} />
 
       <Footer
         name={name}
