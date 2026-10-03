@@ -50,7 +50,6 @@ const Content = (props) => {
   )
 }
 
-// 3. Total Component
 const Total = (props) => {
   return (
     <div className="max-w-3xl mx-auto px-6">
