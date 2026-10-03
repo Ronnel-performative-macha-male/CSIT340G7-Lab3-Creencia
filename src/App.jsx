@@ -9,21 +9,19 @@ const Header = (props) => {
   )
 }
 
-
 const Part = (props) => {
   return (
     <div className="flex justify-between items-center bg-gray-50 border border-gray-200 rounded-lg p-4">
       <span className="text-gray-700 font-medium">
-        {props.part}
+        {props.part.name}
       </span>
 
       <span className="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-full">
-        {props.exercises} Units
+        {props.part.exercises} Units
       </span>
     </div>
   )
 }
-
 
 const Content = (props) => {
   return (
@@ -34,27 +32,15 @@ const Content = (props) => {
         </h2>
 
         <div className="space-y-4">
-          <Part
-            part={props.part1}
-            exercises={props.exercises1}
-          />
-
-          <Part
-            part={props.part2}
-            exercises={props.exercises2}
-          />
-
-          <Part
-            part={props.part3}
-            exercises={props.exercises3}
-          />
+          <Part part={props.part1} />
+          <Part part={props.part2} />
+          <Part part={props.part3} />
         </div>
       </div>
     </main>
   )
 }
 
-// 4. Total Component
 const Total = (props) => {
   return (
     <div className="max-w-3xl mx-auto px-6">
@@ -71,7 +57,6 @@ const Total = (props) => {
   )
 }
 
-// 5. Footer Component
 const Footer = (props) => {
   return (
     <footer className="mt-10 bg-gray-800 text-white py-6">
@@ -88,25 +73,33 @@ const Footer = (props) => {
   )
 }
 
-// 6. Main App Component
 const App = () => {
   const course =
     'Bachelor of Science in Information Technology'
 
-  const part1 = 'CSIT340 - Industry Elective 1'
-  const exercises1 = 3
+  const part1 = {
+    name: 'CSIT340 - Industry Elective 1',
+    exercises: 3
+  }
 
-  const part2 = 'CSIT321 - Web Development'
-  const exercises2 = 3
+  const part2 = {
+    name: 'CSIT321 - Web Development',
+    exercises: 3
+  }
 
-  const part3 = 'CSIT311 - Database Systems'
-  const exercises3 = 4
+  const part3 = {
+    name: 'CSIT311 - Database Systems',
+    exercises: 4
+  }
 
   const name = 'Ronnel P. Creencia'
   const courseCode = 'CSIT340'
   const section = 'G7'
 
-  const total = exercises1 + exercises2 + exercises3
+  const total =
+    part1.exercises +
+    part2.exercises +
+    part3.exercises
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -114,11 +107,8 @@ const App = () => {
 
       <Content
         part1={part1}
-        exercises1={exercises1}
         part2={part2}
-        exercises2={exercises2}
         part3={part3}
-        exercises3={exercises3}
       />
 
       <Total total={total} />
