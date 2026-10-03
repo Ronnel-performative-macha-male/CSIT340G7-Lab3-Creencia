@@ -9,7 +9,6 @@ const Header = (props) => {
   )
 }
 
-// 2. Content Component
 const Content = (props) => {
   return (
     <main className="max-w-3xl mx-auto px-6 py-8">
